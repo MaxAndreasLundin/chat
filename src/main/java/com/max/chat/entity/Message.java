@@ -7,5 +7,4 @@ public class Message {
     private String text;
     private User user;
     private Long timestamp;
-
 }

@@ -11,12 +11,12 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(path = "api/v1/user")
+@RequestMapping(path = "api/v1")
 public class ChatController {
     private final ChatService chatService;
 
-    @GetMapping
-    public List<User> getUser() {
+    @GetMapping("/users")
+    public List<User> getUsers() {
         return chatService.getUsers();
     }
 
