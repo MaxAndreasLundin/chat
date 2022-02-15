@@ -15,16 +15,19 @@ import java.util.List;
 public class ChatController {
     private final ChatService chatService;
 
+    @CrossOrigin
     @GetMapping("/users")
     public List<User> getUsers() {
         return chatService.getUsers();
     }
 
+    @CrossOrigin
     @GetMapping("/messages")
     public List<Message> getMessages() {
         return chatService.getMessages();
     }
 
+    @CrossOrigin
     @PostMapping("/messages")
     public List<Message> postMessage(@RequestBody PostMessageDto postMessageDto) {
         chatService.addMessage(postMessageDto);
