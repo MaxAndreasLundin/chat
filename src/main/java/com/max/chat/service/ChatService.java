@@ -36,7 +36,7 @@ public class ChatService {
         messageRepository.addMessage(message1);
 
         Message message2 = new Message();
-        message2.setText("Du är!!! https://wp.fiskejournalen.se/wp-content/uploads/2016/02/blobfish.jpeg");
+        message2.setText("Du är!!!");
         message2.setUser(user2);
         message2.setTimestamp(2L);
         messageRepository.addMessage(message2);
