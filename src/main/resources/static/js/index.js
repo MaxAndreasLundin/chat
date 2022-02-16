@@ -37,6 +37,9 @@ function updateMessages() {
         addMessage(message.text);
       });
     });
+
+  let objDiv = document.getElementById("chats");
+  objDiv.scrollTop = objDiv.scrollHeight;
 }
 
 function postMessage(messageText) {
@@ -56,4 +59,4 @@ function sendMessage() {
 }
 
 updateMessages();
-setInterval(updateMessages, 1000);
+setInterval(updateMessages, 500);
