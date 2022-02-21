@@ -32,7 +32,7 @@ function addMessage(message) {
 }
 
 function updateMessages() {
-    fetch("http://localhost:8080/api/v1/messages")
+    fetch("/api/v1/messages")
         .then((response) => response.json())
         .then(renderMessages);
 }
@@ -50,7 +50,7 @@ async function postMessage(messageText) {
         text: messageText,
     };
 
-    const messages = await postData("http://localhost:8080/api/v1/messages", postMessageDto);
+    const messages = await postData("/api/v1/messages", postMessageDto);
     console.log('messages', messages);
     renderMessages(messages);
 }
