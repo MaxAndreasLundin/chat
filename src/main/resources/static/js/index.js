@@ -19,11 +19,14 @@ function clearMessages() {
   chat.innerHTML = "";
 }
 
-function addMessage(messageText) {
+function addMessage(message) {
+  const messageText = message.text;
+  const messageUserId = message.user.id;
   const chat = document.getElementById("chats");
   const message1 = document.createElement("div");
   const textNode = document.createTextNode(messageText);
-  message1.classList.add("client-chat");
+  const clazz = messageUserId === getUserId() ? 'my-chat' : 'client-chat';
+  message1.classList.add(clazz);
   message1.appendChild(textNode);
   chat.appendChild(message1);
 }
@@ -33,9 +36,7 @@ function updateMessages() {
     .then((response) => response.json())
     .then((messages) => {
       clearMessages();
-      messages.forEach((message) => {
-        addMessage(message.text);
-      });
+      messages.forEach(addMessage);
     });
 
   let objDiv = document.getElementById("chats");
@@ -44,7 +45,7 @@ function updateMessages() {
 
 function postMessage(messageText) {
   const postMessageDto = {
-    userId: "11",
+    userId: getUserId(),
     text: messageText,
   };
 
@@ -56,6 +57,15 @@ function sendMessage() {
   const messageText = input.value;
   input.value = "";
   postMessage(messageText);
+}
+
+function getUserId() {
+  let userId = window.localStorage.getItem('userId');
+  if (!userId) {
+    userId = crypto.randomUUID();
+    window.localStorage.setItem('userId', userId);
+  }
+  return userId;
 }
 
 updateMessages();

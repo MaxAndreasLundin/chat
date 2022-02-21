@@ -17,7 +17,12 @@ public class UserRepository {
         return new ArrayList<>(map.values());
     }
 
-    public Optional<User> getUserById(String userId) {
-        return Optional.ofNullable(map.get(userId));
+    public User getUserById(String userId) {
+        return map.computeIfAbsent(userId, x -> {
+            User user = new User();
+            user.setId(x);
+            user.setName("");
+            return user;
+        });
     }
 }

@@ -51,7 +51,7 @@ public class ChatService {
     }
 
     public void addMessage(PostMessageDto postMessageDto) {
-        User user = userRepository.getUserById(postMessageDto.getUserId()).orElseThrow();
+        User user = userRepository.getUserById(postMessageDto.getUserId());
 
         Message message = new Message();
         message.setTimestamp(System.currentTimeMillis());
