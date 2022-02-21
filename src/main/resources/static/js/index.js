@@ -32,15 +32,9 @@ function addMessage(message) {
 }
 
 function updateMessages() {
-  fetch("http://localhost:8080/api/v1/messages")
-    .then((response) => response.json())
-    .then((messages) => {
-      clearMessages();
-      messages.forEach(addMessage);
-    });
-
-  let objDiv = document.getElementById("chats");
-  objDiv.scrollTop = objDiv.scrollHeight;
+    fetch("http://localhost:8080/api/v1/messages")
+        .then((response) => response.json())
+        .then(renderMessages);
 }
 
 const renderMessages = (messages) => {
