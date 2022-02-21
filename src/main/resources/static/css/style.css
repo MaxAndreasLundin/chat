@@ -94,6 +94,7 @@ body {
   position: absolute;
   font-size: 0.9em;
   overflow-y: scroll;
+  white-space: pre-line;
 }
 
 .client-chat {

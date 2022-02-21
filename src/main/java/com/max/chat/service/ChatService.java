@@ -46,6 +46,10 @@ public class ChatService {
         return userRepository.getUsers();
     }
 
+    public User getUserById(String userId) {
+        return userRepository.getUserById(userId);
+    }
+
     public List<Message> getMessages() {
         return messageRepository.getMessages();
     }

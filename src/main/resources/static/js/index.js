@@ -22,9 +22,10 @@ function clearMessages() {
 function addMessage(message) {
     const messageText = message.text;
     const messageUserId = message.user.id;
+    const messageUserName = message.user.name;
     const chat = document.getElementById("chats");
     const message1 = document.createElement("div");
-    const textNode = document.createTextNode(messageText);
+    const textNode = document.createTextNode(messageUserName + "\n" + messageText);
     const clazz = messageUserId === getUserId() ? 'my-chat' : 'client-chat';
     message1.classList.add(clazz);
     message1.appendChild(textNode);
@@ -70,6 +71,15 @@ function getUserId() {
     }
     return userId;
 }
+
+async function setChatName() {
+    const name = document.getElementById('big-user-name');
+    const response = await fetch("/api/v1/users/" + getUserId());
+    const user = await response.json();
+    const textNode = document.createTextNode(user.name);
+    name.appendChild(textNode);
+}
+setChatName();
 
 updateMessages();
 setInterval(updateMessages, 10000);

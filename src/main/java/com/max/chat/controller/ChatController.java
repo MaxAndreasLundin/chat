@@ -22,6 +22,12 @@ public class ChatController {
     }
 
     @CrossOrigin
+    @GetMapping("/users/{userId}")
+    public User getUserById(@PathVariable String userId) {
+        return chatService.getUserById(userId);
+    }
+
+    @CrossOrigin
     @GetMapping("/messages")
     public List<Message> getMessages() {
         return chatService.getMessages();
