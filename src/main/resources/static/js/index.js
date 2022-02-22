@@ -79,7 +79,8 @@ async function setChatName() {
     const textNode = document.createTextNode(user.name);
     name.appendChild(textNode);
 }
+
 setChatName();
 
 updateMessages();
-setInterval(updateMessages, 10000);
+setInterval(updateMessages, 500);
