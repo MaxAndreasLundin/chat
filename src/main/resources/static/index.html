@@ -6,41 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/style.css"/>
-    <title>Home</title>
+    <title>MaxChat</title>
 </head>
 <body>
-<nav>
-    <ul>
-        <li>
-            <a href="index.html">Home</a>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#">Gallery</a>
-        </li>
-        <li>
-            <a href="chat.html">Chat</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
-    </ul>
-</nav>
+<div id="fps"></div>
+<div id="bg_glow"></div>
+<div id="overlay"></div>
+<canvas id="canvas"></canvas>
 
 <div class="container">
-    <form class="login">
-        <h1>User Login</h1>
+    <div class="chat-box">
+        <div class="client">
+            <img src="images/logo.png" alt="logo"/>
+            <div class="client-info">
+                <h2 id="big-user-name"></h2>
+                <p>Online</p>
+            </div>
+        </div>
 
-        <input type="email" placeholder="Username" autocomplete="off"/>
-        <input type="password" placeholder="Password" autocomplete="off"/>
+        <div class="chats" id="chats">
+            <div class="client-chat">Hi!</div>
+            <div class="my-chat">Hi!</div>
+            <div class="client-chat">How can I help you?</div>
+            <div class="my-chat">How are you?</div>
+            <div class="client-chat">Fine thanks.</div>
+        </div>
 
-        <button>Login</button>
-        <a href="#">Forgot Password?</a>
-    </form>
+        <div class="chat-input">
+            <input type="text" placeholder="Enter Message" id="messageTextInput"/>
+            <button onclick="sendMessage()" class="send-btn">
+                <img src="images/send.png" alt="send-btn"/>
+            </button>
+        </div>
+    </div>
 </div>
 
 <script src="js/index.js"></script>
+<script src="js/background.js"></script>
 </body>
 </html>
